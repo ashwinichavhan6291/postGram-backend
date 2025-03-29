@@ -2,7 +2,7 @@ const cors = require("cors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const connectDb = require("./config/database");
-const initializeSocket=require("./utils/socket");
+
 
 const app = express();
 const http=require("http");
@@ -18,11 +18,11 @@ app.use(
 );
 
 
-app.options("*", cors({
-    origin: ["http://localhost:5173"],
+app.use(cors({
+    origin: "http://localhost:5173",
     credentials: true
 }));
-app.options("*", cors()); 
+// app.options("*", cors()); 
 app.use(express.json());
 app.use(cookieParser());
 
@@ -33,14 +33,14 @@ const requestRouter = require("./routes/request");
 const userRouter = require("./routes/user");
 const postRouter = require("./routes/post");
 
-app.use("/auth", authRouter);
-app.use("/profile", profileRouter);
-app.use("/request", requestRouter);
-app.use("/user", userRouter);
-app.use("/post", postRouter);
+app.use("/", authRouter);
+app.use("/", profileRouter);
+app.use("/", requestRouter);
+app.use("/", userRouter);
+app.use("/", postRouter);
 
 const server=http.createServer(app);
-initializeSocket(server);
+
 
 
 
