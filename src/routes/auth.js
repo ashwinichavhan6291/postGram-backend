@@ -23,7 +23,7 @@ authRouter.post("/signup", async (req, res) => {
     });
 
     if (!validator.isStrongPassword(password)) {
-      throw new Error("password isnot correct");
+      throw new Error("password is not correct");
     }
     await user.save();
     res.send("user added successfully");
