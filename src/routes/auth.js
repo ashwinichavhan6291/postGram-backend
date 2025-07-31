@@ -25,7 +25,17 @@ authRouter.post("/signup", async (req, res) => {
     if (!validator.isStrongPassword(password)) {
       throw new Error("password is not correct");
     }
-    await user.save();
+    const savedUser=await user.save();
+
+    const token=await savedUser.getJWT();
+
+    res.cookie(token, {
+        httpOnly:true,
+        secure:true,
+        sameSite:"none",
+        expires: new Date(Date.now() + 8 * 3600000),
+      });
+    
     res.send("user added successfully");
   } catch (err) {
     res.status(400).send(err.message);
