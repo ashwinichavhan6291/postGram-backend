@@ -10,7 +10,7 @@ const http=require("http");
 
 app.use(
   cors({
-    origin: "https://astonishing-snickerdoodle-17c3e4.netlify.app/",
+    origin: "https://astonishing-snickerdoodle-17c3e4.netlify.app",
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -18,10 +18,10 @@ app.use(
 );
 
 
-app.use(cors({
-    origin: "https://astonishing-snickerdoodle-17c3e4.netlify.app/",
-    credentials: true
-}));
+// app.use(cors({
+//     origin: "https://astonishing-snickerdoodle-17c3e4.netlify.app/",
+//     credentials: true
+// }));
 app.options("*", cors()); 
 app.use(express.json());
 app.use(cookieParser());
