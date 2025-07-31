@@ -13,16 +13,16 @@ app.use(
     origin: "http://localhost:5173",
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"], 
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://velvety-taffy-1cc372.netlify.app/",
     credentials: true
 }));
-// app.options("*", cors()); 
+app.options("*", cors()); 
 app.use(express.json());
 app.use(cookieParser());
 
