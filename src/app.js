@@ -10,7 +10,7 @@ const http=require("http");
 
 app.use(
   cors({
-    origin: "https://astonishing-snickerdoodle-17c3e4.netlify.app",
+    origin: "https://postgramm.netlify.app",
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
