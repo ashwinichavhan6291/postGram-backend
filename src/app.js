@@ -22,7 +22,7 @@ app.use(cors({
     origin: "https://astonishing-snickerdoodle-17c3e4.netlify.app/",
     credentials: true
 }));
-app.options("*", cors()); 
+// app.options("*", cors()); 
 app.use(express.json());
 app.use(cookieParser());
 
